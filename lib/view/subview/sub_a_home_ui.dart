@@ -113,7 +113,7 @@ class _SubAHomeUiState extends State<SubAHomeUi> {
               image: AssetImage('assets/images/b.jpg'),
               width: MediaQuery.of(context).size.width * 0.6,
               height: MediaQuery.of(context).size.width * 0.4,
-              fit: BoxFit.cover,
+              // fit: BoxFit.cover,
             ),
             SizedBox(height: 20),
             Expanded(
