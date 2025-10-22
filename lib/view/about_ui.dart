@@ -20,12 +20,12 @@ class _AboutUiState extends State<AboutUi> {
         title: Text(
           'สายด่วน THAILAND',
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontWeight: FontWeight.bold,
           ),
         ),
         leading: IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.arrow_back,
             color: Colors.black,
           ),

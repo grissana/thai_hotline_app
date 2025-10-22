@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:thai_hotline_app/models/phone_list.dart';
+import 'package:thai_hotline_app/view/about_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_a_home_ui.dart';
 // import 'package:thai_hotline_app/view/subview/sub_b_home_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_c_home_ui.dart';
@@ -26,47 +27,47 @@ class _SubBHomeUiState extends State<SubBHomeUi> {
     PhoneList(
       name: 'เหตุด่วน เหตุร้าย',
       number: '191',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'แจ้งไฟไหม้ สัตว์เข้าบ้าน',
       number: '199',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'สายด่วนรถหาย (ตำรวจแห่งชาติ)',
       number: '1192',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'อุบัติเหตุ ทางน้ำ',
       number: '1196',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'แจ้งคนหาย',
       number: '1300',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ศูนย์ปลอดภัย คมนาคม',
       number: '1356',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'หน่วยแพทย์ฉ กู้ชีพ',
       number: '1554',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ศูนย์เอราวัณ',
       number: '1646',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'เจ็บป่วยฉุกเฉิน',
       number: '1669',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
   ];
 
@@ -91,7 +92,14 @@ class _SubBHomeUiState extends State<SubBHomeUi> {
                 Icons.info_outline,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutUi(),
+                  ),
+                );
+              },
             ),
           ),
         ],
@@ -182,7 +190,7 @@ class _SubBHomeUiState extends State<SubBHomeUi> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.grey[200],
         type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
+        currentIndex: 1,
         onTap: (index) {
           switch (index) {
             case 0:

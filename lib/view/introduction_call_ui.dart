@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:flutter/gestures.dart';
-import 'package:thai_hotline_app/view/home_ui.dart';
+// import 'package:thai_hotline_app/view/home_ui.dart';
+import 'package:thai_hotline_app/view/subview/sub_a_home_ui.dart';
 
 class IntroductionCallUi extends StatefulWidget {
   const IntroductionCallUi({super.key});
@@ -220,7 +221,12 @@ class _IntroductionCallUiState extends State<IntroductionCallUi> {
               style: TextStyle(fontSize: 18, color: Colors.black),
             ),
             onSkip: () {
-              Navigator.pushNamed(context, '/contact');
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SubAHomeUi(),
+                ),
+              );
             },
             dotsDecorator: DotsDecorator(
               size: const Size(20, 20),
@@ -241,10 +247,10 @@ class _IntroductionCallUiState extends State<IntroductionCallUi> {
               ),
             ),
             onDone: () {
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => HomeUi(),
+                  builder: (context) => SubAHomeUi(),
                 ),
               );
             },

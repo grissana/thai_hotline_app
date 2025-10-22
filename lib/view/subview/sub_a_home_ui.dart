@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:thai_hotline_app/models/phone_list.dart';
+import 'package:thai_hotline_app/view/about_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_b_home_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_c_home_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_d_home_ui.dart';
@@ -25,47 +26,47 @@ class _SubAHomeUiState extends State<SubAHomeUi> {
     PhoneList(
       name: 'กรมทางหลวง ชนบท',
       number: '1146',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ตำรวจ ท่องเที่ยว',
       number: '1155',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ตำรวจ ทางหลวง',
       number: '1193',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ข้อมูลจราจร',
       number: '1197',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ขสมก.',
       number: '1348',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'บขส.',
       number: '1490',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'เส้นทาง บนทางด่วน',
       number: '1543',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'กรมทางหลวง',
       number: '1586',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'การรถไฟแห่ง ประเทศไทย',
       number: '1690',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
   ];
 
@@ -90,7 +91,14 @@ class _SubAHomeUiState extends State<SubAHomeUi> {
                 Icons.info_outline,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutUi(),
+                  ),
+                );
+              },
             ),
           ),
         ],

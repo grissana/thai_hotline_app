@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:thai_hotline_app/models/phone_list.dart';
+import 'package:thai_hotline_app/view/about_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_a_home_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_b_home_ui.dart';
 // import 'package:thai_hotline_app/view/subview/sub_b_home_ui.dart';
@@ -27,82 +28,82 @@ class _SubCHomeUiState extends State<SubCHomeUi> {
     PhoneList(
       name: 'ธนาคาร กรุงเทพฯ',
       number: '1333',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคาร ออมสิน',
       number: '1115',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคาร กสิกรไทย',
       number: '02 888 8888',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคาร กรุงไทย',
       number: '02 111 1111',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคาร กรุงศรีอยุธยา',
       number: '1572',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคาร ทีเอ็มบีธนชาต',
       number: '1428',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'CITI BANK',
       number: '1588',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'LH BANK',
       number: '1327',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธอส.',
       number: '02 645 9000',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคารไทยพาณิชย์',
       number: '02 777 7777',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'KIATNAKINPHATRA',
       number: '02 165 5555',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคาร ไทยเครดิต เพื่อรายย่อย',
       number: '02 697 5454',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'UOB BANK',
       number: '02 285 1555',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคาร TISCO',
       number: '02 636 6000',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคารอิสลาม แห่งประเทศไทย',
       number: '02 204 2766',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ธนาคาร ซีไอเอ็มบี ไทย',
       number: '02 626 7777',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
   ];
 
@@ -127,7 +128,14 @@ class _SubCHomeUiState extends State<SubCHomeUi> {
                 Icons.info_outline,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutUi(),
+                  ),
+                );
+              },
             ),
           ),
         ],
@@ -218,7 +226,7 @@ class _SubCHomeUiState extends State<SubCHomeUi> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.grey[200],
         type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
+        currentIndex: 2,
         onTap: (index) {
           switch (index) {
             case 0:

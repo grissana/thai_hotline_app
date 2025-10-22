@@ -2,11 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:thai_hotline_app/models/phone_list.dart';
+import 'package:thai_hotline_app/view/about_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_a_home_ui.dart';
 // import 'package:thai_hotline_app/view/subview/sub_b_home_ui.dart';
 import 'package:thai_hotline_app/view/subview/sub_c_home_ui.dart';
 // import 'package:thai_hotline_app/view/subview/sub_d_home_ui.dart';
 import 'package:url_launcher/url_launcher.dart';
+// import 'package:thai_hotline_app/view/home_ui.dart';
 
 class SubDHomeUi extends StatefulWidget {
   @override
@@ -26,47 +28,47 @@ class _SubDHomeUiState extends State<SubDHomeUi> {
     PhoneList(
       name: 'ไฟฟ้า การไฟฟ้านครหลวง',
       number: '1130',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ไฟฟ้า การไฟฟ้าส่วนภูมิภาค',
       number: '1129',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'ไฟฟ้า การไฟฟ้าฝ่ายผลิตแห่งประเทศไทย',
       number: '1416',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'การประปานครหลวง',
       number: '1125',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'การประปาส่วนภูมิภาค',
       number: '1662',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'TRUE',
       number: '1242',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'DTAC',
       number: '1678',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'AIS',
       number: '1175',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
     PhoneList(
       name: 'TOT',
       number: '1100',
-      image: 'bb.png',
+      image: 'n.jpg',
     ),
   ];
 
@@ -91,7 +93,14 @@ class _SubDHomeUiState extends State<SubDHomeUi> {
                 Icons.info_outline,
                 color: Colors.black,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AboutUi(),
+                  ),
+                );
+              },
             ),
           ),
         ],
@@ -182,7 +191,7 @@ class _SubDHomeUiState extends State<SubDHomeUi> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.grey[200],
         type: BottomNavigationBarType.fixed,
-        currentIndex: 0,
+        currentIndex: 3,
         onTap: (index) {
           switch (index) {
             case 0:
