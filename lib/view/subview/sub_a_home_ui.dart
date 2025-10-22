@@ -1,21 +1,85 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:thai_hotline_app/models/phone_list.dart';
+import 'package:thai_hotline_app/view/subview/sub_b_home_ui.dart';
+import 'package:thai_hotline_app/view/subview/sub_c_home_ui.dart';
+import 'package:thai_hotline_app/view/subview/sub_d_home_ui.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SubAHomeUi extends StatefulWidget {
-  const SubAHomeUi({super.key});
-
   @override
   State<SubAHomeUi> createState() => _SubAHomeUiState();
 }
 
 class _SubAHomeUiState extends State<SubAHomeUi> {
+  Future<void> _makePhoneCall(String phoneNumber) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: phoneNumber,
+    );
+    await launchUrl(launchUri);
+  }
+
+  List<PhoneList> phoneLists = [
+    PhoneList(
+      name: 'กรมทางหลวง ชนบท',
+      number: '1146',
+      image: 'bb.png',
+    ),
+    PhoneList(
+      name: 'ตำรวจ ท่องเที่ยว',
+      number: '1155',
+      image: 'bb.png',
+    ),
+    PhoneList(
+      name: 'ตำรวจ ทางหลวง',
+      number: '1193',
+      image: 'bb.png',
+    ),
+    PhoneList(
+      name: 'ข้อมูลจราจร',
+      number: '1197',
+      image: 'bb.png',
+    ),
+    PhoneList(
+      name: 'ขสมก.',
+      number: '1348',
+      image: 'bb.png',
+    ),
+    PhoneList(
+      name: 'บขส.',
+      number: '1490',
+      image: 'bb.png',
+    ),
+    PhoneList(
+      name: 'เส้นทาง บนทางด่วน',
+      number: '1543',
+      image: 'bb.png',
+    ),
+    PhoneList(
+      name: 'กรมทางหลวง',
+      number: '1586',
+      image: 'bb.png',
+    ),
+    PhoneList(
+      name: 'การรถไฟแห่ง ประเทศไทย',
+      number: '1690',
+      image: 'bb.png',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.grey[200],
-        title: const Text('Sub A Home UI'),
+        title: const Text('สายด่วน THAILAND',
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            )),
         centerTitle: true,
         elevation: 0,
         actions: [
@@ -26,14 +90,12 @@ class _SubAHomeUiState extends State<SubAHomeUi> {
                 Icons.info_outline,
                 color: Colors.black,
               ),
-              onPressed: () {
-                // Action for info button
-              },
+              onPressed: () {},
             ),
           ),
         ],
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           children: [
             SizedBox(height: 20),
@@ -46,21 +108,110 @@ class _SubAHomeUiState extends State<SubAHomeUi> {
               ),
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 20),
             Image(
               image: AssetImage('assets/images/b.jpg'),
-              height: 300,
-              width: 300,
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.width * 0.4,
+              fit: BoxFit.cover,
+            ),
+            SizedBox(height: 20),
+            Expanded(
+              child: ListView.separated(
+                itemCount: phoneLists.length,
+                separatorBuilder: (context, index) => SizedBox(height: 10),
+                padding: EdgeInsets.all(10),
+                itemBuilder: (context, index) => Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15), // มุมโค้งมน
+                    border: Border.all(
+                      color: Colors.grey.shade300, // สีของกรอบ
+                      width: 2, // ความหนาของกรอบ
+                    ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        blurRadius: 5,
+                        offset: Offset(2, 3),
+                      ),
+                    ],
+                  ),
+                  child: ListTile(
+                    onTap: () {
+                      _makePhoneCall(phoneLists[index].number!);
+                    },
+                    leading: Padding(
+                      padding: EdgeInsets.only(left: 10.0, right: 10.0),
+                      child: Image.asset(
+                        'assets/images/${phoneLists[index].image}',
+                        width: MediaQuery.of(context).size.width * 0.1,
+                        height: MediaQuery.of(context).size.width * 0.1,
+                      ),
+                    ),
+                    title: Text(
+                      phoneLists[index].name!,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    subtitle: Text(
+                      phoneLists[index].number!,
+                      style: TextStyle(
+                        color: Colors.grey[700],
+                        fontSize: 16,
+                      ),
+                    ),
+                    trailing: Padding(
+                      padding: EdgeInsets.only(right: 10.0),
+                      child: Icon(
+                        Icons.phone,
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
       ),
-      //เมนูด้านล่าง
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.grey[200],
         type: BottomNavigationBarType.fixed,
         currentIndex: 0,
         onTap: (index) {
-          // Handle navigation based on tapped index
+          switch (index) {
+            case 0:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => SubAHomeUi()),
+              );
+              break;
+
+            case 1:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => SubBHomeUi()),
+              );
+              break;
+
+            case 2:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => SubCHomeUi()),
+              );
+              break;
+
+            case 3:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => SubDHomeUi()),
+              );
+              break;
+          }
         },
         items: const [
           BottomNavigationBarItem(
@@ -72,7 +223,7 @@ class _SubAHomeUiState extends State<SubAHomeUi> {
             label: 'อุบัติเหตุ-เหตุฉุกเฉิน',
           ),
           BottomNavigationBarItem(
-            icon: Icon(FontAwesomeIcons.bank, color: Colors.black),
+            icon: Icon(Icons.account_balance, color: Colors.black),
             label: 'ธนาคาร',
           ),
           BottomNavigationBarItem(
